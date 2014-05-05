@@ -1,0 +1,96 @@
+OVERVIEW: llvm machine code playground
+
+USAGE: llvm-mc [options] <input file>
+
+OPTIONS:
+  -I=<directory>                                  - Directory of include files
+  -L                                              - Don't discard temporary labels
+  -arch=<string>                                  - Target arch to assemble for, see -version for available targets
+  -asm-verbose                                    - Add comments to directives.
+  -bounds-checking-single-trap                    - Use one trap block per function
+  -code-model                                     - Choose code model
+    =default                                      -   Target default code model
+    =small                                        -   Small code model
+    =kernel                                       -   Kernel code model
+    =medium                                       -   Medium code model
+    =large                                        -   Large code model
+  -disable-cfi                                    - Do not use .cfi_* directives
+  -disable-debug-info-verifier                    - 
+  -disable-objc-arc-checkforcfghazards            - Disable check for cfg hazards when annotating
+  -disable-spill-fusing                           - Disable fusing of spill code into instructions
+  -enable-correct-eh-support                      - Make the -lowerinvoke pass insert expensive, but correct, EH code
+  -enable-load-pre                                - 
+  -enable-objc-arc-annotations                    - Enable emission of arc data flow analysis annotations
+  -enable-objc-arc-opts                           - enable/disable all ARC Optimizations
+  -enable-tbaa                                    - 
+  -fatal-assembler-warnings                       - Consider warnings as error
+  -fdata-sections                                 - Emit data into separate sections
+  -fdebug-compilation-dir=<string>                - Specifies the debug info's compilation dir
+  -ffunction-sections                             - Emit functions into separate sections
+  -filetype                                       - Choose an output file type:
+    =asm                                          -   Emit an assembly ('.s') file
+    =null                                         -   Don't emit anything (for timing purposes)
+    =obj                                          -   Emit a native object ('.o') file
+  -g                                              - Generate dwarf debugging info for assembly source files
+  -help                                           - Display available options (-help-hidden for more)
+  -internalize-public-api-file=<filename>         - A file containing list of symbol names to preserve
+  -internalize-public-api-list=<list>             - A list of symbol names to preserve
+  -join-liveintervals                             - Coalesce copies (default=true)
+  -limit-float-precision=<uint>                   - Generate low-precision inline sequences for some float libcalls
+  -main-file-name=<string>                        - Specifies the name we should consider the input file
+  -mattr=<a1,+a2,-a3,...>                         - Target specific attributes (-mattr=help for details)
+  -mc-no-exec-stack                               - File doesn't need an exec stack
+  -mc-relax-all                                   - Relax all fixups
+  -mc-x86-disable-arith-relaxation                - Disable relaxation of arithmetic instruction for X86
+  -mcpu=<cpu-name>                                - Target a specific cpu type (-mcpu=help for details)
+  Action to perform:
+    -as-lex                                       - Lex tokens from a .s file
+    -assemble                                     - Assemble a .s file (default)
+    -disassemble                                  - Disassemble strings of hex bytes
+    -mdis                                         - Marked up disassembly of strings of hex bytes
+    -hdis                                         - Disassemble strings of hex bytes printing immediates as hex
+  -n                                              - Don't assume assembly file starts in the text section
+  -o=<filename>                                   - Output filename
+  -objc-arc-annotation-target-identifier=<string> - filter out all data flow annotations but those that apply to the given target llvm identifier.
+  -output-asm-variant=<uint>                      - Syntax variant to use for output printing
+  -pre-RA-sched                                   - Instruction schedulers available (before register allocation):
+    =vliw-td                                      -   VLIW scheduler
+    =list-ilp                                     -   Bottom-up register pressure aware list scheduling which tries to balance ILP and register pressure
+    =list-hybrid                                  -   Bottom-up register pressure aware list scheduling which tries to balance latency and register pressure
+    =source                                       -   Similar to list-burr but schedules in source order when possible
+    =list-burr                                    -   Bottom-up register reduction list scheduling
+    =linearize                                    -   Linearize DAG, no scheduling
+    =fast                                         -   Fast suboptimal list scheduling
+    =default                                      -   Best scheduler for the target
+  -print-after-all                                - Print IR after each pass
+  -print-before-all                               - Print IR before each pass
+  -print-machineinstrs=<pass-name>                - Print machine instrs
+  -regalloc                                       - Register allocator to use
+    =default                                      -   pick register allocator based on -O option
+    =basic                                        -   basic register allocator
+    =fast                                         -   fast register allocator
+    =greedy                                       -   greedy register allocator
+    =pbqp                                         -   PBQP register allocator
+  -relocation-model                               - Choose relocation model
+    =default                                      -   Target default relocation model
+    =static                                       -   Non-relocatable code
+    =pic                                          -   Fully relocatable, position independent code
+    =dynamic-no-pic                               -   Relocatable external references, non-relocatable code
+  -show-encoding                                  - Show instruction encodings
+  -show-inst                                      - Show internal instruction representation
+  -show-inst-operands                             - Show instructions operands as parsed
+  -spiller                                        - Spiller to use: (default: standard)
+    =trivial                                      -   trivial spiller
+    =inline                                       -   inline spiller
+  -stats                                          - Enable statistics output from program (available with Asserts)
+  -time-passes                                    - Time each pass, printing elapsed time for each on exit
+  -triple=<string>                                - Target triple to assemble for, see -version for available targets
+  -verify-dom-info                                - Verify dominator info (time consuming)
+  -verify-loop-info                               - Verify loop info (time consuming)
+  -verify-regalloc                                - Verify during register allocation
+  -verify-region-info                             - Verify region info (time consuming)
+  -verify-scev                                    - Verify ScalarEvolution's backedge taken counts (slow)
+  -version                                        - Display the version of this program
+  -x86-asm-syntax                                 - Choose style of code to emit from X86 backend:
+    =att                                          -   Emit AT&T-style assembly
+    =intel                                        -   Emit Intel-style assembly
